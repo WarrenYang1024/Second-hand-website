@@ -1,0 +1,208 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="backendMasterPage.master.cs" Inherits="backend_pages_backendMasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>WAPP Resale Author Zc</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../Portal.aspx">WAPP Resale</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <asp:Label ID="lblwelcome" runat="server" Text="Label"></asp:Label>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="profile.aspx"><i class="fa fa-user fa-fw"></i>Profile</a>
+                        </li>
+                        <li><a href="changepwd.aspx"><i class="fa fa-gear fa-fw"></i>ChangePassword</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="#" runat="server" onserverclick="Logout_Click"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+
+                    <asp:Panel ID="Panel1" runat="server"><!-- admin UI -->
+                        <ul class="nav" id="side-menu">
+                    
+                            <li>
+                                <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard(admin)</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Users<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="searchuser.aspx">Search user (edit, delete)</a>
+                                </li>
+                                <li>
+                                    <a href="adduser.aspx">Add user</a>
+                                </li>
+         
+                                <li>
+                                    <a href="viewallusers.aspx">View all users</a>
+                                </li>
+                            </ul>
+                            
+                        </li>
+                        <!-- /.nav-second-level -->
+                
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Products<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="searchitem.aspx">Search product</a>
+                                </li>
+                                <li>
+                                    <a href="viewallproducts.aspx">View on sale products</a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                         <!-- /.nav-second-level -->
+
+                        
+                    </ul>
+                    </asp:Panel>
+
+                    <asp:Panel ID="Panel2" runat="server"><!-- user UI -->
+                        <ul class="nav" id="side-menu">
+                    
+                            <li>
+                                <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard(user)</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-user fa-fw"></i> Personal<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="profile.aspx">Change Profile</a>
+                                </li>
+                            </ul>
+                            
+                        </li>
+                        <!-- /.nav-second-level -->
+                
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Products<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="publish.aspx">Publish product</a>
+                                </li>
+                                <li>
+                                    <a href="searchitem.aspx">Search product</a>
+                                </li>
+                                <li>
+                                    <a href="viewallproducts.aspx">View products</a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                         <!-- /.nav-second-level -->
+
+                        
+                    </ul>
+                    </asp:Panel>   
+                  
+                        
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+            
+        </nav>
+   </div>
+        <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="../vendor/raphael/raphael.min.js"></script>
+    <script src="../vendor/morrisjs/morris.min.js"></script>
+    <script src="../data/morris-data.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+    
+    
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Welcome to Dashboard</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+                </div>
+
+            <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+            </asp:ContentPlaceHolder>
+        
+        </div>
+       </form>
+
+  
+    
+    
+</body>
+</html>

@@ -1,0 +1,94 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>My Website</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/heroic-features.css" rel="stylesheet">
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="/portal.aspx">WAPP Resale Store</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/Portal.aspx">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact.aspx">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/feedback.aspx">Contact</a>
+            </li>
+                <%
+            if (Session["uName"]==null)  //not yet login, display login button
+            { %>  
+              <li class="nav-item">
+              <a class="nav-link" href="/account/login.aspx">Login</a>
+              </li>
+                  <%}
+                else if (Session["uName"] != null)//login already, display username and logout button
+                {%>
+                    <li class="nav-item">
+                    <a class="nav-link" href="/backend/pages/dashboard.aspx" runat="server"> <!--click self name going to dashboard-->
+                        <asp:Label ID="lbl_display_username" runat="server" Text="Label"></asp:Label></a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#" runat="server" onserverclick="Logout_Click">Logout</a>
+                    </li>
+                        <%}
+                   %>
+                
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+       
+
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+    <div class="container">
+    <p class="m-0 text-center text-white">Copyright &copy; Author: WarrenYang</p>
+    </div>
+    <!-- /.container -->
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+
+   
+    </form>
+</body>
+</html>
